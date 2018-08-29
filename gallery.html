@@ -1,0 +1,57 @@
+<html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script >
+var folder = "images/";
+
+
+$.ajax({
+    url : folder,
+    success: function (data) {
+        $(data).find("a").attr("href", function (i, val) {
+            if( val.match(/\.(jpe?g|png|gif)$/) ) {
+                $("body").append("<a href='"+ folder + val +"'><img src='"+ folder + val +"' width='300' height='300'></a>" );
+              var imglist = $();
+              imglist = imglist.add("hi");
+              // console.log( data ); // Data returned
+               console.log(imglist);
+
+            }
+        });
+    }
+});
+</script>
+<style>
+
+* {
+//border: 1px solid #cccccc;
+font-family: courier;
+font-size: 1em;
+}
+
+nav {
+	text-align: center;
+	width: 100%;
+	display: block;
+	background-color: #666666;
+	overflow: auto;
+margin-bottom: 10px;
+}
+
+nav a {
+color: #ffffff;
+text-decoration: none;
+margin: 0px 25px 0px 25px;
+}
+</style>
+
+
+<body>
+  <nav>
+  <a href="index.html" id="title">Title</a>
+  <a href="index.html">Home</a>
+  <a href="index.html">Info</a>
+  <a href="index.html">Gallery</a>
+  </nav>
+</body>
+</html>
